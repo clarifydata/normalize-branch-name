@@ -6,10 +6,10 @@ function normalize_branch_name {
     # normalize the branch name
     # * sed 's:^[/_\.\-]*::' -> remove all non-alphanumeric characters at beginning of string
     # * sed 's:/:-:g' -> replace slash by dash
-    # * sed 's:-$::' -> remove trailing dash
     # * tr -cd '[a-zA-Z0-9-]')" -> delete all not allowed characters
-    # * cut -c -64 -> truncate to 64 characters
-    local branch_name=`echo "$1" | sed -e 's:^[/_\.\-]*::' -e 's:[/_\.]:-:g' | tr -cd '[a-zA-Z0-9-]' | sed 's:-$::' | cut -c -64`
+    # * cut -c -63 -> truncate to 63 characters
+    # * sed 's:-$::' -> remove trailing dash
+    local branch_name=`echo "$1" | sed -e 's:^[/_\.\-]*::' -e 's:[/_\.]:-:g' | tr -cd '[a-zA-Z0-9-]' | cut -c -63 | sed 's:-$::'`
     echo "$branch_name"
 }
 
