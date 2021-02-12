@@ -4,9 +4,9 @@ This action uses the Github context to extract the branch name and normalize it 
 
 1. Remove all non-alphanumeric characters at the beginning of the string.
 2. Replace slashes by dashes.
-3. Remove trailing dashes.
-4. Delete all characters other than `[a-zA-Z0-9-]`.
-5. Truncate to 64 characters.w
+3. Delete all characters other than `[a-zA-Z0-9-]`.
+4. Truncate to 63 characters.
+5. Remove trailing dashes.
 
 ## Inputs
 
